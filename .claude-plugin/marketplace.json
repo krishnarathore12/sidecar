@@ -1,5 +1,5 @@
 {
-  "name": "sidecar",
+  "name": "windflow",
   "description": "Bridge agents for delegating Claude Code tasks to GPT 5.5 (Codex) and GLM 5.2 (opencode)",
   "owner": {
     "name": "Krishna Rathore"

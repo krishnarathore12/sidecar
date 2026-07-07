@@ -33,7 +33,7 @@ In Claude Code:
 
 ```
 /plugin marketplace add krishnarathore12/sidecar
-/plugin install sidecar@sidecar
+/plugin install sidecar@windflow
 ```
 
 Verify with `/context` — you should see `codex` and `opencode` under Custom Agents.
