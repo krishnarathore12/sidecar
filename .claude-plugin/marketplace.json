@@ -1,0 +1,14 @@
+{
+  "name": "sidecar",
+  "description": "Bridge agents for delegating Claude Code tasks to GPT 5.5 (Codex) and GLM 5.2 (opencode)",
+  "owner": {
+    "name": "Krishna Rathore"
+  },
+  "plugins": [
+    {
+      "name": "sidecar",
+      "source": "./",
+      "description": "Bridge agents that let Claude Code delegate work to GPT 5.5 (Codex CLI) and GLM 5.2 (opencode CLI) as subagents"
+    }
+  ]
+}
