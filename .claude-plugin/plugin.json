@@ -1,12 +1,12 @@
 {
   "name": "sidecar",
-  "description": "Bridge agents that let Claude Code delegate work to GPT 5.5 (Codex CLI) and GLM 5.2 (opencode CLI) as subagents",
-  "version": "1.0.0",
+  "description": "Bridge agents that let Claude Code delegate work to GPT 5.6 Sol (Codex CLI) and GLM 5.2 (pi harness) as subagents",
+  "version": "2.0.0",
   "author": {
     "name": "Krishna Rathore"
   },
   "homepage": "https://github.com/krishnarathore12/sidecar",
   "repository": "https://github.com/krishnarathore12/sidecar",
   "license": "MIT",
-  "keywords": ["subagents", "codex", "opencode", "gpt-5.5", "glm-5.2", "delegation"]
+  "keywords": ["subagents", "codex", "pi", "gpt-5.6-sol", "glm-5.2", "delegation"]
 }
