@@ -14,9 +14,11 @@ The GPT agents are thin wrappers (Sonnet 5 at low reasoning effort) that pass yo
 Only the GPT agents need setup — the Codex CLI installed and authenticated with **your own** ChatGPT subscription:
 
 ```bash
-npm install -g @openai/codex   # or: brew install --cask codex
+npm install -g @openai/codex   # install via npm (recommended, see note)
 codex login                    # sign in with your ChatGPT subscription
 ```
+
+> **Install via npm, not Homebrew.** As of codex 0.144.0 the Homebrew cask is missing the `codex-code-mode-host` helper binary, so tool-using tasks fail with `codex-code-mode-host not found`. The npm package bundles it. If you have the cask, switch: `brew uninstall --cask codex && npm i -g @openai/codex@latest`.
 
 > `gpt-5.6-sol` and `gpt-5.6-terra` require an up-to-date Codex CLI. If either model is rejected, upgrade with `npm i -g @openai/codex@latest` (or `brew upgrade --cask codex`).
 
@@ -67,7 +69,8 @@ Once installed, Claude delegates automatically based on the task, or you can ask
 
 ## Troubleshooting
 
-- **Model rejected** — upgrade the Codex CLI (`npm i -g @openai/codex@latest` or `brew upgrade --cask codex`). If Homebrew claims you're already up to date while an update exists, clear its API cache: `rm -rf ~/Library/Caches/Homebrew/api && brew upgrade --cask codex`.
+- **Model rejected** — upgrade the Codex CLI: `npm i -g @openai/codex@latest`.
+- **`codex-code-mode-host not found`** — you installed codex via the Homebrew cask, which doesn't ship the helper. Switch to npm: `brew uninstall --cask codex && npm i -g @openai/codex@latest`.
 - **Fails in non-git directories** — the GPT agents already pass `--skip-git-repo-check`; make sure you didn't remove it if you customize the prompts.
 
 ## License

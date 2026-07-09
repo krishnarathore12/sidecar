@@ -1,7 +1,7 @@
 {
   "name": "sidecar",
   "description": "Subagents for Claude Code: GPT 5.6 Sol and Terra via the Codex CLI, plus Claude Sonnet 5 and Opus 4.8 native workers",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": {
     "name": "Krishna Rathore"
   },
