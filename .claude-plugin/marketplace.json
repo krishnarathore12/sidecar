@@ -1,6 +1,6 @@
 {
   "name": "windflow",
-  "description": "Bridge agents for delegating Claude Code tasks to GPT 5.6 Sol (Codex) and GLM 5.2 (pi harness)",
+  "description": "Subagents for Claude Code: GPT 5.6 Sol and Terra via the Codex CLI, plus Claude Sonnet 5 and Opus 4.8 native workers",
   "owner": {
     "name": "Krishna Rathore"
   },
@@ -8,7 +8,7 @@
     {
       "name": "sidecar",
       "source": "./",
-      "description": "Bridge agents that let Claude Code delegate work to GPT 5.6 Sol (Codex CLI) and GLM 5.2 (pi harness) as subagents"
+      "description": "Subagents for Claude Code: GPT 5.6 Sol and Terra via the Codex CLI, plus Claude Sonnet 5 and Opus 4.8 native workers"
     }
   ]
 }
