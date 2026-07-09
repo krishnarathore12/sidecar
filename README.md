@@ -42,7 +42,14 @@ Add this to your `~/.claude/CLAUDE.md` (or a project `CLAUDE.md`):
 ```markdown
 # Subagent delegation policy
 
-**Default to delegation.** For any substantive task, launch a bridge subagent instead of doing the work in the main conversation. The main thread's job is to orchestrate: scope the task, delegate it, verify the result, and report back concisely.
+**Default to delegation.** For any substantive task, the main conversation orchestrates — it does not do the work itself. Follow this loop:
+
+1. **Assess what you know.** Before decomposing, check whether you can already name the files, modules, and facts involved. If not, gather knowledge first: run quick targeted searches yourself (Glob/Grep, read a key file) or launch terra to scout. Never decompose blind — chunks drawn from guesses produce overlapping or misdirected agents.
+2. **Decompose into atomic chunks.** Split the task into the smallest units that are independently completable and verifiable — one bug, one module, one question, one file-cluster each. A chunk is atomic when one agent can finish it without waiting on another agent's output. Prefer many small parallel chunks over one broad agent.
+3. **Launch in parallel.** Dispatch ALL independent chunks as subagents in a single message — never serially when no data dependency exists. Sequence only chunks whose input genuinely depends on another's output (e.g., terra scouts → sol implements with the findings in its prompt).
+4. **Verify and integrate.** Read the changed files, run the tests or the code, reconcile any conflicts between agents' outputs, and report back concisely.
+
+Route each chunk to the right agent:
 
 - **sol** (GPT 5.6 Sol xhigh via Codex CLI): writing or modifying code, implementation, debugging, bug fixing, code review, test writing.
 - **terra** (GPT 5.6 Terra xhigh via Codex CLI): codebase exploration, research, analysis, refactoring, documentation, second opinions.
@@ -51,10 +58,8 @@ Add this to your `~/.claude/CLAUDE.md` (or a project `CLAUDE.md`):
 
 Rules:
 
-- When a task needs both research and implementation, delegate in sequence: terra (or sonnet) to explore and gather context first, then sol to implement with that context in the prompt.
-- Launch independent subagents in parallel in a single message rather than one at a time.
-- Give each subagent a complete, self-contained prompt: the goal, relevant file paths, constraints, and what to return.
-- Verify subagent output before reporting: read the changed files, run the tests or the code.
+- Give each subagent a complete, self-contained prompt: the goal, relevant file paths, constraints, gathered context, and exactly what to return. Chunks must not require agents to coordinate with each other.
+- Two agents must never edit the same file in parallel — if chunks overlap on files, merge them into one chunk or sequence them.
 - Handle directly only: trivial single-file edits that are faster to do than to delegate, quick factual answers, pure conversation, or cases where every subagent route is unavailable.
 - Use built-in agents (Explore, Plan, general-purpose) only when the task genuinely doesn't fit any of the four.
 ```
