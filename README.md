@@ -46,12 +46,19 @@ Add this to your `~/.claude/CLAUDE.md` (or a project `CLAUDE.md`):
 ```markdown
 # Subagent delegation policy
 
-When launching subagents, almost always prefer the custom bridge agents over built-in ones:
+**Default to delegation.** For any substantive task, launch a bridge subagent instead of doing the work in the main conversation. The main thread's job is to orchestrate: scope the task, delegate it, verify the result, and report back concisely.
 
-- **codex** (GPT 5.6 Sol xhigh via Codex CLI): implementation, debugging, bug fixing, code review, test writing.
+- **codex** (GPT 5.6 Sol xhigh via Codex CLI): writing or modifying code, implementation, debugging, bug fixing, code review, test writing.
 - **pi** (GLM 5.2 xhigh via pi harness): codebase exploration, research, analysis, refactoring, documentation, second opinions.
 
-Use built-in agents (Explore, Plan, general-purpose) only when the task genuinely doesn't fit either, or when the codex/pi CLIs are unavailable or failing.
+Rules:
+
+- When a task needs both research and implementation, delegate in sequence: pi to explore and gather context first, then codex to implement with that context in the prompt.
+- Launch independent subagents in parallel in a single message rather than one at a time.
+- Give each subagent a complete, self-contained prompt: the goal, relevant file paths, constraints, and what to return.
+- Verify subagent output before reporting: read the changed files, run the tests or the code.
+- Handle directly only: trivial single-file edits that are faster to do than to delegate, quick factual answers, pure conversation, or cases where the codex/pi CLIs are unavailable or failing.
+- Use built-in agents (Explore, Plan, general-purpose) only when the task genuinely doesn't fit codex or pi.
 ```
 
 ## Usage
