@@ -1,0 +1,12 @@
+{
+  "name": "speechless",
+  "description": "Converse in Simplified Technical English (ASD-STE100), adapted for software and AI engineering",
+  "version": "0.1.0",
+  "author": {
+    "name": "Krishna Rathore"
+  },
+  "homepage": "https://github.com/krishnarathore12/sidecar",
+  "repository": "https://github.com/krishnarathore12/sidecar",
+  "license": "MIT",
+  "keywords": ["simplified-technical-english", "ste", "asd-ste100", "clarity", "writing", "controlled-language"]
+}

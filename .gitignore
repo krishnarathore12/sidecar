@@ -1,0 +1,6 @@
+# The ASD-STE100 specification is copyright ASD and is not redistributable.
+# Keep local copies out of the repository.
+ASD-STE100*.pdf
+*.pdf
+
+.DS_Store

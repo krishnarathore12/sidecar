@@ -9,6 +9,11 @@
       "name": "sidecar",
       "source": "./",
       "description": "Subagents for Claude Code: GPT 5.6 Sol and Terra via the Codex CLI, plus Claude Sonnet 5 and Opus 4.8 native workers"
+    },
+    {
+      "name": "speechless",
+      "source": "./speechless",
+      "description": "Converse in Simplified Technical English (ASD-STE100), adapted for software and AI engineering"
     }
   ]
 }
